@@ -32,10 +32,10 @@ public class TimeConverter {
 
         // Input source and target country
         System.out.println("Enter source country:");
-        String sourceCountry = scanner.nextLine();
+        String sourceCountry = scanner.nextLine().trim();
 
         System.out.println("Enter target country:");
-        String targetCountry = scanner.nextLine();
+        String targetCountry = scanner.nextLine().trim();
 
         // Input local date and time
         System.out.println("Enter local date and time in source country (yyyy-MM-ddTHH:mm), e.g., 2025-06-04T18:00:");
