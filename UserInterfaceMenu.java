@@ -10,7 +10,7 @@ public class UserInterfaceMenu {
         int choice = 0; // need a variable to store the user's menu selection
 
         do {
-            System.out.println("----------------------------------------------------------------");
+            System.out.println("\n----------------------------------------------------------------");
             System.out.println("|             Welcome to the World Time & Season App!          |");
             System.out.println("|                                                              |");
             System.out.println("|  You can convert time and check the current season for the   |");
@@ -39,27 +39,35 @@ public class UserInterfaceMenu {
                 sc.nextLine(); // clear newline character
 
                 if (choice == 1) {
-                    TimeConverterCountry.timeConverter();
+                    // Scanner scanner = new Scanner(System.in);
+
+                    System.out.println("\nAvailable countries: USA, China, Germany, Australia, New Zealand, Brazil");
+
+                    // Input source and target country
+                    System.out.print("\nEnter source country: ");
+                    String sourceCountry = sc.nextLine().trim();
+
+                    System.out.print("\nEnter target country: ");
+                    String targetCountry = sc.nextLine().trim();
+
+                    // Input local date and time
+                    System.out.print(
+                            "\nEnter local date and time in source country (yyyy-MM-ddTHH:mm), e.g., 2025-06-04T18:00: ");
+                    String dateTime = sc.nextLine();
+                    TimeConverterCountry.timeConverter(sourceCountry, targetCountry, dateTime);
 
                 } else if (choice == 2) {
-                    SeasonDeterminer.seasonDeterminer();
-                    /*
-                     * System.out.print("\nEnter country: ");
-                     * String country = sc.nextLine();
-                     * 
-                     * System.out.print("Current date (yyyy-MM-dd): ");
-                     * String dateStr = sc.nextLine();
-                     * 
-                     * try {
-                     * LocalDate date = LocalDate.parse(dateStr);
-                     * String hemisphere = seasonDeterminer.getHemisphere(country);
-                     * System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
-                     * String season = seasonDeterminer.getSeason(date, hemisphere);
-                     * System.out.println("Current season in " + country + ": " + season);
-                     * } catch (Exception e) {
-                     * System.out.println("Invalid date format. Please use yyyy-MM-dd.");
-                     * }
-                     */
+
+                    // Scanner sc = new Scanner(System.in);
+
+                    System.out.print("\nEnter country: ");
+                    String country = sc.nextLine();
+
+                    System.out.print("Current date (yyyy-MM-dd): ");
+                    String dateStr = sc.nextLine();
+
+                    SeasonDeterminer.seasonDeterminer(country, dateStr);
+
                 } else if (choice == 3) {
                     System.out.println("Goodbye!");
                 } else {
@@ -69,7 +77,7 @@ public class UserInterfaceMenu {
                 System.out.println("Invalid input. Please enter only number 1 , 2 or 3");
                 sc.nextLine(); // clear the invalid input
             }
-        } while (choice != 1 && choice != 2 && choice != 3);
+        } while (choice != 3);
 
         sc.close(); // close the scanner to free up system resources
 
