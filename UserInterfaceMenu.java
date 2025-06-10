@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class UserInterface {
+public class UserInterfaceMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); // read user input
         SeasonDeterminer seasonDeterminer = new SeasonDeterminer();
@@ -39,24 +39,27 @@ public class UserInterface {
                 sc.nextLine(); // clear newline character
 
                 if (choice == 1) {
-                    TimeConverter.timeConverter();
+                    TimeConverterCountry.timeConverter();
 
                 } else if (choice == 2) {
-                    System.out.print("\nEnter country: ");
-                    String country = sc.nextLine();
-
-                    System.out.print("Current date (yyyy-MM-dd): ");
-                    String dateStr = sc.nextLine();
-
-                    try {
-                        LocalDate date = LocalDate.parse(dateStr);
-                        String hemisphere = seasonDeterminer.getHemisphere(country);
-                        System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
-                        String season = seasonDeterminer.getSeason(date, hemisphere);
-                        System.out.println("Current season in " + country + ": " + season);
-                    } catch (Exception e) {
-                        System.out.println("Invalid date format. Please use yyyy-MM-dd.");
-                    }
+                    SeasonDeterminer.seasonDeterminer();
+                    /*
+                     * System.out.print("\nEnter country: ");
+                     * String country = sc.nextLine();
+                     * 
+                     * System.out.print("Current date (yyyy-MM-dd): ");
+                     * String dateStr = sc.nextLine();
+                     * 
+                     * try {
+                     * LocalDate date = LocalDate.parse(dateStr);
+                     * String hemisphere = seasonDeterminer.getHemisphere(country);
+                     * System.out.println(country + " is in the " + hemisphere + " Hemisphere.");
+                     * String season = seasonDeterminer.getSeason(date, hemisphere);
+                     * System.out.println("Current season in " + country + ": " + season);
+                     * } catch (Exception e) {
+                     * System.out.println("Invalid date format. Please use yyyy-MM-dd.");
+                     * }
+                     */
                 } else if (choice == 3) {
                     System.out.println("Goodbye!");
                 } else {
