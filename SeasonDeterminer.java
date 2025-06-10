@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 // Determine Season Based on Hemisphere
 public class SeasonDeterminer {
