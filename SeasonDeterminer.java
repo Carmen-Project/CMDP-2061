@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 // Determine Season Based on Hemisphere
 public class SeasonDeterminer {
-    private final Map<String, String> countryHemisphere = new HashMap<>(); //to store country (hemisphere mapping)
+    private final Map<String, String> countryHemisphere = new HashMap<>(); // to store country (hemisphere mapping)
 
     public SeasonDeterminer() {
         countryHemisphere.put("USA", "Northern");
@@ -16,53 +16,36 @@ public class SeasonDeterminer {
         countryHemisphere.put("Brazil", "Southern");
     }
 
-    public String getHemisphere(String country)
-    {
-        if (country == null)
-        {
-            return "Unknown";//Null country
+    public String getHemisphere(String country) {
+        if (country == null) {
+            return "Unknown";// Null country
         }
 
         country = country.trim();
 
-        if (country.equals("USA"))
-        {
+        if (country.equals("USA")) {
             return "Northern";
-        }
-        else if (country.equals("China"))
-        {
+        } else if (country.equals("China")) {
             return "Northern";
-        }
-        else if (country.equals("Germany"))
-        {
+        } else if (country.equals("Germany")) {
             return "Northern";
-        }
-        else if (country.equals("Australia"))
-        {
+        } else if (country.equals("Australia")) {
             return "Southern";
-        }
-        else if (country.equals("New Zealand"))
-        {
+        } else if (country.equals("New Zealand")) {
             return "Southern";
-        }
-        else if (country.equals("Brazil"))
-        {
+        } else if (country.equals("Brazil")) {
             return "Southern";
-        }
-        else
-        {
+        } else {
             return "Unknown";
         }
     }
 
-    public String getSeason(LocalDate date, String hemisphere)
-    {
-        if (date == null || hemisphere == null || hemisphere.equals("Unknown"))
-        {
-            return "Invalid country or hemisphere";//Invalid country
+    public String getSeason(LocalDate date, String hemisphere) {
+        if (date == null || hemisphere == null || hemisphere.equals("Unknown")) {
+            return "Invalid country or hemisphere";// Invalid country
         }
 
-        //Determine Current Date
+        // Determine Current Date
         int month = date.getMonthValue();
         int day = date.getDayOfMonth();
 
@@ -92,14 +75,14 @@ public class SeasonDeterminer {
         }
     }
 
-    public static void seasonDeterminer() {
-        Scanner sc = new Scanner(System.in);
+    public static void seasonDeterminer(String country, String dateStr) {
+        // Scanner sc = new Scanner(System.in);
 
-        System.out.print("\nEnter country: ");
-        String country = sc.nextLine();
+        // System.out.print("\nEnter country: ");
+        // String country = sc.nextLine();
 
-        System.out.print("Current date (yyyy-MM-dd): ");
-        String dateStr = sc.nextLine();
+        // System.out.print("Current date (yyyy-MM-dd): ");
+        // String dateStr = sc.nextLine();
 
         try {
             LocalDate date = LocalDate.parse(dateStr);
@@ -112,6 +95,7 @@ public class SeasonDeterminer {
             System.out.println("Invalid date format. Please use yyyy-MM-dd.");
         }
 
-        sc.close();
+        
     }
 }
+
