@@ -25,8 +25,8 @@ public class TimeConverterCountry {
         zoneId.put("Brazil", "America/Sao_Paulo");
     }
 
-    public static void timeConverter() {
-        Scanner scanner = new Scanner(System.in);
+    public static void timeConverter(String sourceCountry, String targetCountry, String dateTime) {
+        /*Scanner scanner = new Scanner(System.in);
 
         System.out.println("\nAvailable countries: USA, China, Germany, Australia, New Zealand, Brazil");
 
@@ -39,7 +39,7 @@ public class TimeConverterCountry {
 
         // Input local date and time
         System.out.print("\nEnter local date and time in source country (yyyy-MM-ddTHH:mm), e.g., 2025-06-04T18:00: ");
-        String dateTime = scanner.nextLine();
+        String dateTime = scanner.nextLine(); */
 
         try {
             // GMT conversion
