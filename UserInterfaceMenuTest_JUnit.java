@@ -25,7 +25,7 @@ public class UserInterfaceMenuTest_JUnit {
          * 
          */
 
-        System.setIn(new ByteArrayInputStream("1\nUSA\nBrazil\n2025-06-04T18:00".getBytes()));
+        System.setIn(new ByteArrayInputStream("1\nUSA\nBrazil\n2025-06-04T18:00\3".getBytes()));
 
         UserInterfaceMenu.main(new String[] {}); // Production code
 
@@ -50,13 +50,13 @@ public class UserInterfaceMenuTest_JUnit {
          * 
          */
 
-        System.setIn(new ByteArrayInputStream("2\nUSA\n2025-06-04".getBytes()));
+        System.setIn(new ByteArrayInputStream("2\nUSA\n2025-06-04\3".getBytes()));
 
         UserInterfaceMenu.main(new String[] {}); // Production code
 
         String output = capOut.toString();
 
-        assertTrue("Test for SeasonDeterminer", output.contains("Target Zoned Time: 2025-06-04 19:00:00 BRT"));
+        assertTrue("Test for SeasonDeterminer", output.contains("Current season in USA: Spring"));
 
     }
 
@@ -66,7 +66,7 @@ public class UserInterfaceMenuTest_JUnit {
         ByteArrayOutputStream capOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(capOut));
 
-        System.setIn(new ByteArrayInputStream("3".getBytes()));
+        System.setIn(new ByteArrayInputStream("3\n".getBytes()));
 
         UserInterfaceMenu.main(new String[] {}); // Production code
 
@@ -81,7 +81,7 @@ public class UserInterfaceMenuTest_JUnit {
         ByteArrayOutputStream capOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(capOut));
 
-        System.setIn(new ByteArrayInputStream("5".getBytes()));
+        System.setIn(new ByteArrayInputStream("5\n\3".getBytes()));
 
         UserInterfaceMenu.main(new String[] {}); // Production code
 
@@ -97,7 +97,7 @@ public class UserInterfaceMenuTest_JUnit {
         ByteArrayOutputStream capOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(capOut));
 
-        System.setIn(new ByteArrayInputStream("-1".getBytes()));
+        System.setIn(new ByteArrayInputStream("-1\n\3".getBytes()));
 
         UserInterfaceMenu.main(new String[] {}); // Production code
 
@@ -113,7 +113,7 @@ public class UserInterfaceMenuTest_JUnit {
         ByteArrayOutputStream capOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(capOut));
 
-        System.setIn(new ByteArrayInputStream("a@".getBytes()));
+        System.setIn(new ByteArrayInputStream("a@\n\3".getBytes()));
 
         UserInterfaceMenu.main(new String[] {}); // Production code
 
